@@ -52,10 +52,12 @@ pegarImagens(imgArray)
 pegarImagens(imgOverlay)
 
 // Botão para quando clicar na imagem do meio abrir ela maior
-imgArray[0].addEventListener("click", () => {
-    overlay.style.display = "flex"
-    imgOverlay[0].attributes.src.value = imgArray[0].attributes.src.value
-})
+if (window.innerWidth > 700) {
+    imgArray[0].addEventListener("click", () => {
+        overlay.style.display = "flex"
+        imgOverlay[0].attributes.src.value = imgArray[0].attributes.src.value
+    })
+}
 // Botão para fechar overlay
 document.querySelector("#close-overlay").onclick = () => overlay.style.display = "none"
 
@@ -83,9 +85,9 @@ mudarImagem = (par) => {
 mudarImagem(imgArray)
 mudarImagem(imgOverlay)
 
+// Função para avançar e voltar em um slide
 let botaoEsquerdaOverlay = document.querySelector(".arrows img:nth-child(1)")
 let botaoDireitaOverlay = document.querySelector(".arrows img:nth-child(2)")
-
 const frente = (alvo, par) => {
     alvo.addEventListener("click", () => {
         if (imgInfo[0].key < 4) {
@@ -107,5 +109,16 @@ const tras = (alvo, par) => {
     })
 }
 
+// Ativar o slide no overlay
 frente(botaoDireitaOverlay, imgOverlay)
 tras(botaoEsquerdaOverlay, imgOverlay)
+
+const quantidade = document.getElementById("quantidade")
+document.querySelector(".som").onclick = () => ++quantidade.value;
+document.querySelector(".sub").onclick = () => quantidade.value > 0 ? --quantidade.value : '';
+
+notification = document.getElementById("notificacao")
+
+document.getElementById("add-to-cart").onclick = () => {
+    notification.innerText = +notification.innerText + +quantidade.value
+}
