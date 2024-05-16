@@ -42,6 +42,53 @@ body {
     grid-template-columns: 1.5fr 5fr 5fr 1.5fr;
     background-color: var(--White);
 }
+.cart {
+    position: absolute;
+    right: 0;
+    top: 75%;
+    max-width: 19rem;
+    width: 94%;
+    margin: .625rem;
+    background-color: var(--White);
+    box-shadow: 0 10px 32px -20px black;
+    border-radius: 12px;
+    display: none;
+    z-index: +1;
+}
+.cart h5 {
+    padding: 1rem;
+    border-bottom: 2px solid;
+    border-bottom: 2px solid var(--Light-grayish-blue);
+}
+.cart section {
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+.cart figure {
+    display: none;
+    justify-content: center;
+    gap: 1rem;
+}
+.cart button {
+    display: none;
+}
+.cart-img {
+    width: 3rem;
+    border-radius: 5px;
+}
+.cart figure span:nth-child(3) {
+    font-weight: 700;
+    margin: 0 .25rem;
+    color: var(--Black);
+}
+.empty {
+    font-weight: 700;
+}
 aside {
     display: none;
     flex-direction: column;
@@ -68,6 +115,7 @@ header {
     grid-template-columns: 1fr 1fr;
     border-bottom: 2px solid var(--Light-grayish-blue);
     align-items: center;
+    position: relative;
 }
 header nav figure {
     display: flex;
@@ -119,10 +167,16 @@ header section figure {
     right: 5rem;
     font-weight: 700;
 }
+#notificacao:empty {
+    display: none;
+}
 #profile {
     width: 3rem;
+    border-radius: 50%;
 }
-
+#profile:hover {
+    outline: 1px solid var(--orange);
+}
 main {
     grid-column: 2 / 4;
     gap: 5rem;
@@ -136,6 +190,7 @@ main {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 100%;
     gap: 1.5vw;
+    position: relative;
 }
 .img-area img {
     border-radius: 12px;
@@ -144,8 +199,23 @@ main {
 .img-area img:nth-child(1) {
     grid-column: 1 / 5;
 }
-.img-area img:nth-child(2):not(.arrows img) {
+.mudanca-img:nth-child(2), .adj-img:nth-child(2) {
     opacity: .5;
+}
+.pass-img-showcase {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    inset: 0;
+    align-items: center;
+    padding: 0 .75rem;
+}
+.pass-img-showcase img {
+    width: 40px;
+    height: 40px;
+    padding: .75rem;
+    border-radius: 50%;
+    background-color: var(--White);
 }
 #img-overlay {
     background-color: var(--Light-box-black);
@@ -163,13 +233,13 @@ main {
     gap: inherit 1rem;
     padding: 0;
 }
-#img-overlay img:not(img:nth-child(1), #close-overlay, .arrows img) {
+.mudanca-img:not(:nth-child(1)) {
     max-width: 4rem;
     width: 100%;
     justify-self: center;
     transition: opacity .1s ease;
 }
-.img-area img:not(img:nth-child(1), #close-overlay, .arrows img):hover {
+.adj-img:hover, .mudanca-img:not(:nth-child(1)):hover {
     filter:opacity(.75);
 }
 img#close-overlay {
@@ -221,14 +291,21 @@ p {
     font-size: .825rem;
     color: var(--Dark-grayish-blue);
 }
+div:has(.discount) {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
 h2 {
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+    font-weight: 700;
     gap: 12px;
 }
-main span {
+.discount:not(:empty) {
     font-size: .75rem;
+    font-weight: 700;
     color: var(--orange);
     background-color: var(--pale-orange);
     padding: .25rem .4rem;
@@ -250,7 +327,6 @@ section:has(h2) {
 }
 .num-add {
     display: flex;
-    max-width: 9rem;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -288,6 +364,7 @@ button {
     border-radius: 6px;
     min-width: 7.2rem;
     transition: opacity .1s ease;
+    padding: 1rem;
 }
 button:hover {
     opacity: .75;
@@ -299,6 +376,12 @@ button img {
 
 @media (min-width: 900px) {
     #menu {
+        display: none;
+    }
+    .cart {
+        right: -7%;
+    }
+    .pass-img-showcase {
         display: none;
     }
 }
@@ -318,6 +401,9 @@ button img {
     }
     #profile, #cart {
         width: 1.35rem;
+    }
+    .cart {
+        top: 110%;
     }
     #notificacao {
         top: -0.3rem;
@@ -341,10 +427,13 @@ button img {
     .img-area {
         padding: 0;
     }
-    .img-area img {
-        border-radius: 0;
+    .main-img {
+        border-radius: 0 !important;
     }
-    .img-area img:not(img:nth-child(1)) {
+    .adj-img {
         display: none;
+    }
+    .buy-area {
+        flex-direction: column;
     }
 }

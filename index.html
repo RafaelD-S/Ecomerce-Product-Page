@@ -13,7 +13,7 @@
 <body>
     <!-- 
         Barra Lateral
-     -->
+    -->
     <aside>
         <figure>
             <img src="./assets/icons/icon-close.svg" alt="Fechar" class="click" id="fechar">
@@ -27,6 +27,35 @@
         </ul>
     </aside>
     <header>
+        <!-- 
+            Cart
+         -->
+        <article class="cart">
+            <h5>
+                Cart
+            </h5>
+            <section>
+                <figure>
+                    <img src="" alt="" class="cart-img">
+                    <figcaption>
+                        <p class="cart-name">
+                            <!-- Fall Limited Edition Sneakers -->
+                        </p>
+                        <p class="cart-price">
+                            <span></span> x <span></span> <span></span>
+                        </p>
+                    </figcaption>
+                    <img src="./assets/icons/icon-delete.svg" alt="" class="click excluir">
+                </figure>
+                <button class="click">
+                    Checkout
+                </button>
+                <p class="empty">
+                    Your cart is empty.
+                </p>
+            </section>
+        </article>
+
         <nav>
             <figure>
                 <img src="./assets/icons/icon-menu.svg" alt="" id="menu" class="click">
@@ -44,25 +73,32 @@
             <figure>
                 <img src="./assets/icons/icon-cart.svg" alt="Cart" id="cart" class="click">
                 <img src="./assets/img/image-avatar.png" alt="Profile" id="profile" class="click">
-                <span id="notificacao">0</span>
+                <span id="notificacao"></span>
             </figure>
         </section>
     </header>
     <main>
-        <figure class="img-area">
-            <img src="" alt="" class="click">
-            <img src="" alt="" class="click mudar-imagem">
-            <img src="" alt="" class="click mudar-imagem">
-            <img src="" alt="" class="click mudar-imagem">
-            <img src="" alt="" class="click mudar-imagem">
+        <figure class="img-area showcase">
+            <img src="" alt="product image" class="click main-img">
+            <img src="" alt="product image" class="click adj-img">
+            <img src="" alt="product image" class="click adj-img">
+            <img src="" alt="product image" class="click adj-img">
+            <img src="" alt="product image" class="click adj-img">
+            <div class="pass-img-showcase">
+                <img src="./assets/icons/icon-previous.svg" alt="" class="click showcase-arrow">
+                <img src="./assets/icons/icon-next.svg" alt="" class="click showcase-arrow">
+            </div>
         </figure>
+        <!-- 
+            Overlay
+         -->
         <article id="img-overlay">
             <figure class="img-area overlay-box">
-                <img src="" alt="" class="mudanca-img"> 
-                <img src="" alt="" class="click mudanca-img">
-                <img src="" alt="" class="click mudanca-img">
-                <img src="" alt="" class="click mudanca-img">
-                <img src="" alt="" class="click mudanca-img">
+                <img src="" alt="product image" class="mudanca-img"> 
+                <img src="" alt="product image" class="click mudanca-img">
+                <img src="" alt="product image" class="click mudanca-img">
+                <img src="" alt="product image" class="click mudanca-img">
+                <img src="" alt="product image" class="click mudanca-img">
                 <figure class="arrows">
                     <img src="./assets/icons/icon-previous.svg" alt="" class="click">
                     <img src="./assets/icons/icon-next.svg" alt="" class="click">
@@ -76,18 +112,21 @@
                     SNEAKER COMPANY
                 </h3>
                 <h1>
-                    Fall Limited Edition Sneakers
+
                 </h1>
             </section>
-            <p>
-                These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
+            <p class="description">
+
             </p>
             <section class="price-area">
-                <h2>
-                    $125.00 <span>50%</span>
-                </h2>
+                <div>
+                    <h2>
+
+                    </h2>
+                    <span class="discount"></span>
+                </div>
                 <h4>
-                    $250.00
+
                 </h4>
             </section>
             <section class="buy-area">
