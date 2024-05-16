@@ -366,9 +366,6 @@ button {
     transition: opacity .1s ease;
     padding: 1rem;
 }
-button:hover {
-    opacity: .75;
-}
 button img {
     filter: brightness(0) saturate(100%) invert(98%) sepia(4%) saturate(2258%) hue-rotate(307deg) brightness(99%) contrast(105%);
     width: 16px;
@@ -383,6 +380,9 @@ button img {
     }
     .pass-img-showcase {
         display: none;
+    }
+    button:hover {
+        opacity: .75;
     }
 }
 @media (max-width: 900px) {
